@@ -1,0 +1,155 @@
+html {
+	background-color: #F2F2F2;
+	min-height: 100%;
+}
+
+body {
+	width: 100%;
+	min-height: 100%;
+	background-color: white;
+	margin: auto;
+}
+
+h3.center {
+	text-align: center;
+	padding-top: 70px;
+	padding-bottom: 10px;
+	font-variant-east-asian: normal;
+	font-size: 48px;
+}
+
+p.center{
+	text-align: center;
+	font-weight: bold;
+}
+
+form.center {
+	text-align: center;
+	border: 0;
+}
+
+input {
+	font-size: 20px;
+	border: 1;
+	text-align:center;
+	width: 99%;
+	height: 36px;
+	
+}
+
+input:focus {
+	outline: 0px;
+}
+
+input[type="submit"] {
+	padding: 5px;
+	margin-bottom: 20px;
+}
+
+/*
+Popup box BEGIN
+https://html-online.com/articles/simple-popup-box/
+*/
+.hover_bkgr_fricc{
+    background:rgba(0,0,0,.0);
+    cursor:pointer;
+    display:none;
+    height:10%;
+    position:absolute;
+    text-align:center;
+    top:50px;
+    left:25%;
+    width:50%;
+    z-index:10000;
+}
+.hover_bkgr_fricc .helper{
+    display:inline-block;
+    height:100%;
+    vertical-align:middle;
+}
+.hover_bkgr_fricc > div {
+    background-color: #fff;
+    box-shadow: 10px 10px 60px #555;
+    display: inline-block;
+    height: auto;
+    max-width: 551px;
+    min-height: 100px;
+    vertical-align: middle;
+    width: 60%;
+    position: relative;
+    border-radius: 8px;
+    padding: 15px 5%;
+}
+.popupCloseButton {
+    background-color: #fff;
+    border: 3px solid #999;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-block;
+    font-family: arial;
+    font-weight: bold;
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 25px;
+    line-height: 30px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+.popupCloseButton:hover {
+    background-color: #ccc;
+}
+.trigger_popup_fricc {
+    cursor: pointer;
+    font-size: 20px;
+    margin: 20px;
+    display: inline-block;
+    font-weight: bold;
+}
+/* Popup box BEGIN */
+
+/* 
+From https://www.w3schools.com/howto/howto_css_dropdown.asp
+Dropdown Button 
+*/
+.dropbtn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+  }
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  .dropdown:hover .dropbtn {background-color: #3e8e41;}

@@ -1,0 +1,97 @@
+<!doctype html>
+
+<html>
+    <head>
+        <meta charset="utf-8"/>
+		<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='styles/style.css') }}">
+        <title>KrashenGPT</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="{{ url_for('static',filename='js/custom.js') }}"></script>
+    </head>
+    <body>
+        <a class="trigger_popup_fricc"><img style="z-index:99; vertical-align: text-bottom; left: 280px; top:12px; position:relative;" src="{{ url_for ('static',filename='graphics/icon_gear.png') }}"></a>
+        <h3 class="center">{{ target_text }}</h3>
+
+        <input type="text" id="answer" placeholder="Translate into English" autofocus="autofocus" autocomplete="off"><br><br>
+        <button hidden id="submitAnswer">Next</button>
+        <p class="center" id="response"></p>
+
+        
+
+        <div class="hover_bkgr_fricc">
+            <span class="helper"></span>
+            <div>
+                <div class="popupCloseButton">&times;</div>
+                <div class="dropdown">
+                    <button class="dropbtn">Switch Language</button>
+                    <div class="dropdown-content">
+                      <a href="/switch/Spanish">Spanish</a>
+                      <a href="/switch/French">French</a>
+                      <a href="/switch/German">German</a>
+                      <a href="/switch/Italian">Italian</a>
+                      <a href="/switch/Dutch">Dutch</a>
+                      <a href="/switch/Portuguese">Portuguese</a>
+                      <a href="/switch/Chinese">Chinese</a>
+                      <a href="/switch/Japanese">Japanese</a>
+                      <a href="/switch/Korean">Korean</a>
+                      <a href="/switch/Russian">Russian</a>
+                      <a href="/switch/Arabic">Arabic</a>
+                      <a href="/switch/Turkish">Turkish</a>
+                    </div>
+                  </div>
+                <br>
+            </div>
+        </div>
+        <script>
+            // For popup box
+			$(window).on('load', function () {
+			    $(".trigger_popup_fricc").click(function(){
+			       $('.hover_bkgr_fricc').show();
+			    });
+			    //$('.hover_bkgr_fricc').click(function(){
+			    //    $('.hover_bkgr_fricc').hide();
+			    //});
+			    $('.popupCloseButton').click(function(){
+			        $('.hover_bkgr_fricc').hide();
+			    });
+			});
+        </script>
+        <script>
+            var user_input = document.getElementById("answer");
+            user_input.addEventListener('keypress', function(event) {
+            if (event.key == "Enter") {
+                event.preventDefault();
+                $("#submitAnswer").click();
+            }});
+        </script>
+        <script>
+        	$(document).ready(function() {
+                $('#submitAnswer').click(function() {
+                    var text = $('#answer').val();
+                    $.ajax({
+                        url: '/sendAnswer',
+                        type: 'POST',
+                        contentType: 'application/json',
+                        data: JSON.stringify({text: text}),
+                        success: function(response) {
+                            var answerCorrect = response.response;
+                            console.log(answerCorrect);
+                            if (answerCorrect == 1) {
+                                $('#response').css('color','green');
+                                $('#response').text("Correct!");
+                                window.location.href='/next-text';
+                            } else {
+                                $('#response').css('color','red');
+                                $('#response').text("Try again");
+                            }
+                        },
+                        error: function(error) {
+                            console.log(error);
+                        }
+                    });
+                });
+            });
+        </script>
+    </body>
+
+</html>
