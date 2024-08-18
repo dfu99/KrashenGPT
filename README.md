@@ -40,5 +40,7 @@ You will need an OpenAI API key to run this.
 ## Changelog
 Jul/2/2024: Initial release with support for practice from Spanish, French, German, Italian, Dutch, Portuguese, Chinese, Japanese, Korean, Russian, Arabic, and Turkish to English. Progression to higher levels not thoroughly tested, but the basic process of the program works.
 
+Aug/18/2024: Update GPT models from gpt-3.5-turbo-0125 to gpt-mini-4o.
+
 ### Author
 Written by [Dan Fu](https://dfu99.github.io)

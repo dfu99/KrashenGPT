@@ -24,7 +24,7 @@ def get_new_text(words, difficulty, language, history=None):
     msg+= "Print only the original sentence and no translations or explanations."
     print("[GPT]", msg)
     query = client.chat.completions.create( 
-        model="gpt-3.5-turbo-0125",
+        model="gpt-4o-mini",
         messages=[
             {"role": "user", "content": msg}
         ]
@@ -40,7 +40,7 @@ def generate_batch(part_of_speech, language, context, size=3):
     msg = f"Give me a list of {size} simple {language} {part_of_speech}s in {language}. The context is {context}. Print only the {language}, without any translation or explanation, and without numbering. Print as a comma-separated list formatted for Python in one line with no spaces."
     print("[GPT]", msg)
     query = client.chat.completions.create(
-        model="gpt-3.5-turbo-0125",
+        model="gpt-4o-mini",
         messages=[
             {"role": "user", "content": msg}
         ]
@@ -56,7 +56,7 @@ def permute_sentence(last_sentence, language):
     """
     msg = f"Provide a {language} sentence that has a very similar structure to {last_sentence}. Print only the sentence itself. Do not provide any supplementary information or translation."
     query = client.chat.completions.create( 
-        model="gpt-3.5-turbo-0125",
+        model="gpt-4o-mini",
         messages=[
             {"role": "user", "content": msg}
         ]
@@ -77,7 +77,7 @@ def check_correctness(target_sentence, user_answer, language):
     print("[GPT]", msg)
 
     query = client.chat.completions.create(
-        model="gpt-3.5-turbo-0125",
+        model="gpt-4o-mini",
         messages=[
             {"role": "user", "content": msg}
         ]
@@ -93,7 +93,7 @@ def check_correctness(target_sentence, user_answer, language):
     # So we'll also ask if the user translation is semantically similar to the translated target sentence, when both are in the same language
     else:
         query = client.chat.completions.create(
-            model="gpt-3.5-turbo-0125",
+            model="gpt-4o-mini",
             messages=[
                 {"role": "user", "content": msg},
                 {"role": "assistant", "content": response.content},
@@ -107,7 +107,7 @@ def check_correctness(target_sentence, user_answer, language):
         msg = f"Confirm, using only the exact strings '1' for 'Yes' or '0' for 'No', whether '{user_answer}' \
             is a semantically similar to '{native_translation}'."
         query = client.chat.completions.create(
-            model="gpt-3.5-turbo-0125",
+            model="gpt-4o-mini",
             messages=[
                 {"role": "user", "content": msg}
             ]
