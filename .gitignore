@@ -3,6 +3,12 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Large files or directories
+word2vec/
+simmtx/
+*.h5
+sentences/
+
 # SQL databases
 *.db
 
