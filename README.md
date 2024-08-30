@@ -42,5 +42,7 @@ Jul/2/2024: Initial release with support for practice from Spanish, French, Germ
 
 Aug/18/2024: Update GPT models from gpt-3.5-turbo-0125 to gpt-mini-4o.
 
+Aug/29/2024: Added [sentence_generator](https://github.com/dfu99/KrashenGPT/tree/main/sentence_generator) package.
+
 ### Author
 Written by [Dan Fu](https://dfu99.github.io)
